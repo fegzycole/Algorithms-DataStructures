@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Start with your code from LinkedList challenge.
+
 class Node # :nodoc:
   attr_accessor :value, :next_node
 
@@ -23,15 +25,16 @@ class LinkedList # :nodoc:
 
     if !head
       self.head = node
+      self.size += 1
+      head.value
     else
       current = head
 
       current = current.next_node while current.next_node
 
       current.next_node = node
+      current.next_node.value
     end
-
-    self.size += 1
   end
 
   def get(index)
@@ -68,12 +71,15 @@ class LinkedList # :nodoc:
 
   def remove_at(index)
     return if index.negative? || index > self.size
+    return -1 if head.nil?
 
     current = head
     previous = nil
+    num = nil
     count = 0
 
     if index.zero?
+      num = head
       self.head = current.next_node
     else
       while count < index
@@ -82,18 +88,29 @@ class LinkedList # :nodoc:
         count += 1
       end
 
+      num = previous.next_node
       previous.next_node = current.next_node
     end
     self.size -= 1
+    num.value
   end
 end
 
-list = LinkedList.new
+class Queue
+  attr_accessor :linked
+  def initialize
+    @linked = LinkedList.new
+  end
 
-list.add(3)
-list.add(5)
-list.add_at(1, 11)
-list.add_at(0, 13)
-list.remove_at(2)
+  def add(number)
+    linked.add(number)
+  end
 
-p list
+  def remove
+    linked.remove_at(0)
+  end
+end
+
+queue = Queue.new
+
+puts queue.remove
