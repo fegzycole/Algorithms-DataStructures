@@ -24,7 +24,7 @@
   * [Built With](#built-with)
   * [Prerequisites](#prerequisites)
 * [Topics Covered](#topics-covered)
-* [Tests]
+* [Tests](#topics)
 * [Roadmap](#roadmap)
 * [License](#license)
 * [Contact](#contact)
