@@ -25,7 +25,7 @@ def coin_change(coins, amount)
     
     while k < coins.length
       if  j >= coins[k]
-          dp[j] = 1 + dp[j - coins[k]] > dp[j] ? dp[j] : 1 + dp[j - coins[k]]
+        dp[j] = 1 + dp[j - coins[k]] > dp[j] ? dp[j] : 1 + dp[j - coins[k]]
       end
       k += 1
     end
