@@ -1,4 +1,4 @@
-const merge = (
+export const merge = (
   nums1: number[],
   m: number,
   nums2: number[],
