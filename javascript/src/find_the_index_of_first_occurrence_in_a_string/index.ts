@@ -1,12 +1,8 @@
 export const strStr = (haystack: string, needle: string): number => {
-  const hLen = haystack.length;
-  const nLen = needle.length;
+  if (needle === '') return 0;
 
-  if (nLen === 0) return 0;
-  if (nLen > hLen) return -1;
-
-  for (let i = 0; i <= hLen - nLen; i++) {
-    if (haystack.substring(i, i + nLen) === needle) {
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    if (haystack.slice(i, i + needle.length) === needle) {
       return i;
     }
   }
